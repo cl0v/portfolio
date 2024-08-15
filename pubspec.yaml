@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -38,11 +40,20 @@ dependencies:
   flutter_bloc: ^8.1.6
   hovering: ^1.0.4
   gif: ^2.3.0
+  audioplayers: 6.0.0
+  just_audio: ^0.9.39
+  url_launcher: ^6.3.0
+  pdf: ^3.11.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+# dependency_overrides:
+#   audioplayers_web:
+#     git:
+#       url: https://github.com/bluefireteam/audioplayers.git
+#       path: 'packages/audioplayers_web'
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -64,6 +75,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/gifs/cat/
+    - assets/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -4,11 +4,7 @@ import 'package:gif/gif.dart';
 import 'package:portfolio/home/presenters/blocs/pet_cat_bloc.dart';
 
 class PetCatWidget extends StatelessWidget {
-  const PetCatWidget({
-    super.key,
-    this.size = 10,
-    this.color
-  });
+  const PetCatWidget({super.key, this.size = 10, this.color});
   final double size;
   final Color? color;
 
@@ -26,6 +22,7 @@ class PetCatWidget extends StatelessWidget {
                 colorBlendMode: BlendMode.modulate,
                 color: color,
                 height: MediaQuery.of(context).size.height * (size / 100),
+                // width: MediaQuery.of(context).size.width * (size / 100),
                 image: AssetImage(state),
                 autostart: Autostart.loop,
               ),
