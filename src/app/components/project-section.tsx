@@ -12,19 +12,22 @@ export default async function ProjectsSection() {
             title: 'DreamPuppy Ltda. (iPets)',
             description: 'DreamPuppy is a Flutter and NuxtJS app that allows you to find dogs for sale/adoption. It was developed in 2023.',
             link: 'https://github.com/cl0v/DreamPuppy-Ltda',
-            image: '/static/images/dreampuppy.jpeg'
+            image: '/static/images/dreampuppy.jpeg',
+            gif: false,
         },
         {
             title: 'TV Controller',
             description: 'Flutter app that allows you to control your TV by websocket and NodeJS Robots. It was developed in 2024.',
             link: 'https://github.com/cl0v/tv-controller',
-            image: '/static/images/tvcontroller.gif'
+            image: '/static/images/tvcontroller.gif',
+            gif: true,
         },
         {
             title: 'Gaules - A Tribo',
             description: 'Gaules is a fan made App to the Streamer Gaules. It was developed in 2021, and it has been downloaded 18k times.',
             link: 'https://github.com/cl0v/gaules',
-            image: '/static/images/gaules.jpg'
+            image: '/static/images/gaules.jpg',
+            gif: false,
         },
     ]
 
@@ -38,6 +41,7 @@ export default async function ProjectsSection() {
                     </CardHeader>
                     <CardContent>
                         <Image
+                            unoptimized={project.gif}
                             src={`${project.image}?height=200&width=400`}
                             alt={`Project ${project.title}`}
                             width={400}
