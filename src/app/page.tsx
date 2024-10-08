@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MoonIcon, SunIcon } from 'lucide-react'
+// import { MoonIcon, SunIcon } from 'lucide-react'
 import { ChevronDownIcon, ChevronUpIcon, MenuIcon } from 'lucide-react'
 import { SiGithub, SiLinkedin, SiInstagram } from "react-icons/si";
 import {
@@ -15,6 +15,7 @@ import {
 
 import ContactForm from './components/contact-form'
 import Link from 'next/link'
+import ProjectsSection from './components/project-section'
 
 export const metadata: Metadata = {
   title: 'Marcelo Viana - Flutter Developer',
@@ -23,27 +24,6 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-
-  const projects = [
-    {
-      title: 'DreamPuppy Ltda. (iPets)',
-      description: 'DreamPuppy is a Flutter and NuxtJS app that allows you to find dogs for sale/adoption. It was developed in 2023.',
-      link: 'https://github.com/cl0v/DreamPuppy-Ltda',
-      image: '/static/images/dreampuppy.jpeg'
-    },
-    {
-      title: 'TV Controller',
-      description: 'Flutter app that allows you to control your TV by websocket and NodeJS Robots. It was developed in 2024.',
-      link: 'https://github.com/cl0v/tv-controller',
-      image: '/static/images/tvcontroller.gif'
-    },
-    {
-      title: 'Gaules - A Tribo',
-      description: 'Gaules is a fan made App to the Streamer Gaules. It was developed in 2021, and it has been downloaded 18k times.',
-      link: 'https://github.com/cl0v/gaules',
-      image: '/static/images/gaules.jpg'
-    },
-  ]
 
 
   return (
@@ -117,28 +97,7 @@ export default function Home() {
 
         <section id="projects" className="mb-16">
           <h2 className="text-3xl font-bold mb-4">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <Card key={project.title}>
-                <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Image
-                    src={`${project.image}?height=200&width=400`}
-                    alt={`Project ${project.title}`}
-                    width={400}
-                    height={200}
-                    className="rounded-md"
-                  />
-                </CardContent>
-                <CardFooter>
-                  <Button><Link href={project.link}>View Project</Link></Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
+          <ProjectsSection />
         </section>
 
         <section id="skills" className="mb-16">
