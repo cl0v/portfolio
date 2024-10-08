@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { MoonIcon, SunIcon } from 'lucide-react'
-import { send } from 'process'
+import { SiGithub, SiLinkedin, SiInstagram } from "react-icons/si";
+
+
 import ContactForm from './components/contact-form'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Marcelo Viana - Flutter Developer',
@@ -23,10 +26,14 @@ export default function Home() {
           <h1 className="text-2xl font-bold">Marcelo Viana</h1>
           <nav>
             <ul className="flex space-x-4">
-              <li><a href="/about" className="hover:text-primary">About</a></li>
               <li><a href="#projects" className="hover:text-primary">Projects</a></li>
               <li><a href="#skills" className="hover:text-primary">Skills</a></li>
+              <li><a href="#social" className="hover:text-primary">Social</a></li>
+              <li><a href="/about" className="hover:text-primary">About</a></li>
               <li><a href="#contact" className="hover:text-primary">Contact</a></li>
+
+              {/* <li><a href="https://github.com/cl0v" className="hover:text-primary">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/marcelo-fernandes-viana-a49311329/" className="hover:text-primary">LinkedIn</a></li> */}
             </ul>
           </nav>
           {/* <Button variant="outline" size="icon" className="ml-4">
@@ -90,6 +97,26 @@ export default function Home() {
             ))}
           </div>
         </section>
+        <section id="social" className="mb-16">
+          <h2 className="text-3xl font-bold mb-4">Social</h2>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" size="icon">
+              <Link href={"https://linkedin.com/in/marcelo-fernandes-viana-a49311329/"}>
+                <SiLinkedin className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="icon">
+              <Link href={"https://github.com/cl0v"}>
+                <SiGithub className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="icon">
+              <Link href={"https://instagram.com/celov23/"}>
+                <SiInstagram className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </section>
 
         <section id="contact">
           <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
@@ -99,7 +126,7 @@ export default function Home() {
               <CardDescription>Fill out the form below to send me a message.</CardDescription>
             </CardHeader>
             <CardContent>
-             <ContactForm />
+              <ContactForm />
             </CardContent>
           </Card>
         </section>

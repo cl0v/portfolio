@@ -13,7 +13,7 @@ export default function Page() {
     
     const expertises = [
         "Flutter / Dart",
-        "Next and React",
+        "NextJS and React",
         "Godot and GDScript ",
         "Unity3d / C#",
         "Docker plus Kubernetes",
