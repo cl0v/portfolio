@@ -28,7 +28,7 @@ export default function Home() {
             <ul className="flex space-x-4">
               <li><a href="#projects" className="hover:text-primary">Projects</a></li>
               <li><a href="#skills" className="hover:text-primary">Skills</a></li>
-              <li><a href="#social" className="hover:text-primary">Social</a></li>
+              {/* <li><a href="#social" className="hover:text-primary">Social</a></li> */}
               <li><a href="/about" className="hover:text-primary">About</a></li>
               <li><a href="#contact" className="hover:text-primary">Contact</a></li>
 

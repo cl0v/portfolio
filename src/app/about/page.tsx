@@ -6,11 +6,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Page() {
     const [showAllExpertise, setShowAllExpertise] = useState(false)
     const [showAllHistory, setShowAllHistory] = useState(false)
-    
+
     const expertises = [
         "Flutter / Dart",
         "NextJS and React",
@@ -46,82 +47,93 @@ export default function Page() {
         "2009 started learning programming with Unity3D and JavaScript self-taught.",
     ];
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-4xl font-bold mb-8">About Marcelo Viana</h1>
+        <div className="min-h-screen bg-background text-foreground">
+            <header className="sticky top-0 z-10 bg-background border-b">
+                <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                    <h1 className="text-2xl font-bold">
+                        <Link href="/">
+                            Marcelo Viana
+                        </Link>
+                    </h1>
+                </div>
+            </header>
+            <div className="container mx-auto px-4 py-8">
+                <h1 className="text-4xl font-bold mb-8">About</h1>
 
-            <Card className="mb-8">
-                <CardHeader>
-                    <CardTitle>Background</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-lg">Marcelo Viana, born in the late nineties in Brazil, is a versatile software developer.</p>
-                </CardContent>
-            </Card>
-
-            <div className="grid gap-8 md:grid-cols-2">
-                <Card>
+                <Card className="mb-8">
                     <CardHeader>
-                        <CardTitle>Expertise</CardTitle>
-                        <CardDescription>Technologies and skills</CardDescription>
+                        <CardTitle>Background</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <ScrollArea className="h-[300px] pr-4">
-                            <ul className="space-y-2">
-                                {expertises.slice(0, showAllExpertise ? undefined : 5).map((ex, index) => (
-                                    <li key={index}>
-                                        <Badge variant="secondary" className="mr-2">{index + 1}</Badge>
-                                        {ex}
-                                    </li>
-                                ))}
-                            </ul>
-                        </ScrollArea>
-                        {expertises.length > 5 && (
-                            <Button
-                                variant="ghost"
-                                className="w-full mt-4"
-                                onClick={() => setShowAllExpertise(!showAllExpertise)}
-                            >
-                                {showAllExpertise ? (
-                                    <>Show Less <ChevronUpIcon className="ml-2 h-4 w-4" /></>
-                                ) : (
-                                    <>Show More <ChevronDownIcon className="ml-2 h-4 w-4" /></>
-                                )}
-                            </Button>
-                        )}
+                        <p className="text-lg">Marcelo Viana, born in the late nineties in Brazil, is a versatile software developer.</p>
                     </CardContent>
                 </Card>
 
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Education / History</CardTitle>
-                        <CardDescription>Professional and educational milestones</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <ScrollArea className="h-[300px] pr-4">
-                            <ul className="space-y-2">
-                                {historyEvents.slice(0, showAllHistory ? undefined : 5).map((ev, index) => (
-                                    <li key={index} className="flex items-start">
-                                        <Badge variant="outline" className="mr-2 mt-1">{historyEvents.length - index}</Badge>
-                                        <span>{ev}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </ScrollArea>
-                        {historyEvents.length > 5 && (
-                            <Button
-                                variant="ghost"
-                                className="w-full mt-4"
-                                onClick={() => setShowAllHistory(!showAllHistory)}
-                            >
-                                {showAllHistory ? (
-                                    <>Show Less <ChevronUpIcon className="ml-2 h-4 w-4" /></>
-                                ) : (
-                                    <>Show More <ChevronDownIcon className="ml-2 h-4 w-4" /></>
-                                )}
-                            </Button>
-                        )}
-                    </CardContent>
-                </Card>
+                <div className="grid gap-8 md:grid-cols-2">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Expertise</CardTitle>
+                            <CardDescription>Technologies and skills</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <ScrollArea className="h-[300px] pr-4">
+                                <ul className="space-y-2">
+                                    {expertises.slice(0, showAllExpertise ? undefined : 5).map((ex, index) => (
+                                        <li key={index}>
+                                            <Badge variant="secondary" className="mr-2">{index + 1}</Badge>
+                                            {ex}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </ScrollArea>
+                            {expertises.length > 5 && (
+                                <Button
+                                    variant="ghost"
+                                    className="w-full mt-4"
+                                    onClick={() => setShowAllExpertise(!showAllExpertise)}
+                                >
+                                    {showAllExpertise ? (
+                                        <>Show Less <ChevronUpIcon className="ml-2 h-4 w-4" /></>
+                                    ) : (
+                                        <>Show More <ChevronDownIcon className="ml-2 h-4 w-4" /></>
+                                    )}
+                                </Button>
+                            )}
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Education / History</CardTitle>
+                            <CardDescription>Professional and educational milestones</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <ScrollArea className="h-[300px] pr-4">
+                                <ul className="space-y-2">
+                                    {historyEvents.slice(0, showAllHistory ? undefined : 5).map((ev, index) => (
+                                        <li key={index} className="flex items-start">
+                                            <Badge variant="outline" className="mr-2 mt-1">{historyEvents.length - index}</Badge>
+                                            <span>{ev}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </ScrollArea>
+                            {historyEvents.length > 5 && (
+                                <Button
+                                    variant="ghost"
+                                    className="w-full mt-4"
+                                    onClick={() => setShowAllHistory(!showAllHistory)}
+                                >
+                                    {showAllHistory ? (
+                                        <>Show Less <ChevronUpIcon className="ml-2 h-4 w-4" /></>
+                                    ) : (
+                                        <>Show More <ChevronDownIcon className="ml-2 h-4 w-4" /></>
+                                    )}
+                                </Button>
+                            )}
+                        </CardContent>
+                    </Card>
+                </div>
             </div>
         </div>
     )
