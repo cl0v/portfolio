@@ -4,8 +4,14 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { MoonIcon, SunIcon } from 'lucide-react'
+import { ChevronDownIcon, ChevronUpIcon, MenuIcon } from 'lucide-react'
 import { SiGithub, SiLinkedin, SiInstagram } from "react-icons/si";
-
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 import ContactForm from './components/contact-form'
 import Link from 'next/link'
@@ -25,16 +31,41 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold">Marcelo Viana</h1>
           <nav>
-            <ul className="flex space-x-4">
+            <ul className="hidden md:flex space-x-4">
               <li><a href="#projects" className="hover:text-primary">Projects</a></li>
               <li><a href="#skills" className="hover:text-primary">Skills</a></li>
-              {/* <li><a href="#social" className="hover:text-primary">Social</a></li> */}
+              <li><a href="#social" className="hover:text-primary">Social</a></li>
               <li><a href="/about" className="hover:text-primary">About</a></li>
               <li><a href="#contact" className="hover:text-primary">Contact</a></li>
 
               {/* <li><a href="https://github.com/cl0v" className="hover:text-primary">GitHub</a></li>
               <li><a href="https://www.linkedin.com/in/marcelo-fernandes-viana-a49311329/" className="hover:text-primary">LinkedIn</a></li> */}
             </ul>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild className="md:hidden">
+                <Button variant="outline" size="icon">
+                  <MenuIcon className="h-[1.2rem] w-[1.2rem]" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem>
+                  <a href="/about">About</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#projects">Projects</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#skills">Skills</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#social">Social</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#contact">Contact</a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
           {/* <Button variant="outline" size="icon" className="ml-4">
             <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
