@@ -1,105 +1,115 @@
-import Image from "next/image";
-import { FaGithub } from "react-icons/fa";
+import Image from 'next/image'
+import { Metadata } from 'next'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { MoonIcon, SunIcon } from 'lucide-react'
+import { send } from 'process'
+import ContactForm from './components/contact-form'
 
+export const metadata: Metadata = {
+  title: 'Marcelo Viana - Flutter Developer',
+  description: 'Portfolio of Marcelo Viana, an experienced Flutter developer specializing in cross-platform mobile app development. Check out his projects and skills.',
+  keywords: 'Flutter, mobile development, cross-platform, iOS, Android, portfolio, Nextjs, Python, Javascript, ML',
+}
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="sticky top-0 z-10 bg-background border-b">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold">Marcelo Viana</h1>
+          <nav>
+            <ul className="flex space-x-4">
+              <li><a href="/about" className="hover:text-primary">About</a></li>
+              <li><a href="#projects" className="hover:text-primary">Projects</a></li>
+              <li><a href="#skills" className="hover:text-primary">Skills</a></li>
+              <li><a href="#contact" className="hover:text-primary">Contact</a></li>
+            </ul>
+          </nav>
+          {/* <Button variant="outline" size="icon" className="ml-4">
+            <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span className="sr-only">Toggle theme</span>
+          </Button> */}
         </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-8">
+        <section id="about" className="mb-16">
+          <h2 className="text-3xl font-bold mb-4">About Me</h2>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <Image
+              src="/static/images/avatar.png?height=300&width=300"
+              alt="Marcelo Viana"
+              width={300}
+              height={300}
+              className="rounded-full"
+            />
+            <p className="text-lg">
+              Hi, I'm Marcelo Viana, a professional Flutter developer with 6 years of experience in creating
+              beautiful and performant cross-platform mobile applications. I specialize in building
+              user-friendly interfaces and implementing complex business logic.
+            </p>
+          </div>
+        </section>
+
+        <section id="projects" className="mb-16">
+          <h2 className="text-3xl font-bold mb-4">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3].map((project) => (
+              <Card key={project}>
+                <CardHeader>
+                  <CardTitle>Project {project}</CardTitle>
+                  <CardDescription>A brief description of the project</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Image
+                    src={`/placeholder.svg?height=200&width=400&text=Project+${project}`}
+                    alt={`Project ${project}`}
+                    width={400}
+                    height={200}
+                    className="rounded-md"
+                  />
+                </CardContent>
+                <CardFooter>
+                  <Button>View Project</Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section id="skills" className="mb-16">
+          <h2 className="text-3xl font-bold mb-4">Skills</h2>
+          <div className="flex flex-wrap gap-2">
+            {['Flutter', 'Dart', 'Firebase', 'AWS', 'REST API', 'Git', 'UI/UX Design', 'State Management', 'Test-Driven Development'].map((skill) => (
+              <Badge key={skill} variant="secondary">{skill}</Badge>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
+          <Card>
+            <CardHeader>
+              <CardTitle>Get in touch</CardTitle>
+              <CardDescription>Fill out the form below to send me a message.</CardDescription>
+            </CardHeader>
+            <CardContent>
+             <ContactForm />
+            </CardContent>
+          </Card>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/about"
-          // target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="About icon"
-            width={16}
-            height={16}
-          />
-          About
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/projects"
-          // target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Projects icon"
-            width={16}
-            height={16}
-          />
-          Projects
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://github.com/cl0v"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {/* <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="GitHub icon"
-            width={16}
-            height={16}
-          /> */}
-          <FaGithub />
-          GitHub →
-        </a>
+
+      <footer className="bg-muted py-4 mt-16">
+        <div className="container mx-auto px-4 text-center">
+          <p>&copy; 2024 Marcelo Viana. All rights reserved.</p>
+        </div>
       </footer>
-      
     </div>
-  );
+  )
 }
