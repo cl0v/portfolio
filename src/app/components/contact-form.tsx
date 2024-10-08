@@ -2,17 +2,22 @@
 
 import { Button } from '@/components/ui/button';
 
+import { sendGTMEvent } from '@next/third-parties/google'
+
 export default function ContactForm() {
 
 
     const sendWhatsAppMessage = (formData: FormData) => {
         const phoneNumber = '5533998744781';
-
+        
         const name = formData.get('name');
         const message = formData.get('message');
-
+        
         const encoded = encodeURIComponent(`Hi Marcelo, my name is ${name}.\n${message}`);
         const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
+        
+        sendGTMEvent({ event: 'buttonClicked', value: 'AW-16600683276/ZV0-CJjFm7wZEIym6es9' })
+        
         window.open(url);
     }
 
