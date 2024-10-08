@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>{children}
       <Analytics />
       </body>
-      <GoogleTagManager gtmId="16600683276" />
+      <GoogleTagManager gtmId="AW-16600683276" />
     </html>
   )
 }
