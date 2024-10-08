@@ -24,6 +24,27 @@ export const metadata: Metadata = {
 
 export default function Home() {
 
+  const projects = [
+    {
+      title: 'DreamPuppy Ltda. (iPets)',
+      description: 'DreamPuppy is a Flutter and NuxtJS app that allows you to find dogs for sale/adoption. It was developed in 2023.',
+      link: 'https://github.com/cl0v/DreamPuppy-Ltda',
+      image: '/static/images/dreampuppy.jpeg'
+    },
+    {
+      title: 'TV Controller',
+      description: 'Flutter app that allows you to control your TV by websocket and NodeJS Robots. It was developed in 2024.',
+      link: 'https://github.com/cl0v/tv-controller',
+      image: '/static/images/tvcontroller.gif'
+    },
+    {
+      title: 'Gaules - A Tribo',
+      description: 'Gaules is a fan made App to the Streamer Gaules. It was developed in 2021, and it has been downloaded 18k times.',
+      link: 'https://github.com/cl0v/gaules',
+      image: '/static/images/gaules.jpg'
+    },
+  ]
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -97,23 +118,23 @@ export default function Home() {
         <section id="projects" className="mb-16">
           <h2 className="text-3xl font-bold mb-4">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((project) => (
-              <Card key={project}>
+            {projects.map((project) => (
+              <Card key={project.title}>
                 <CardHeader>
-                  <CardTitle>Project {project}</CardTitle>
-                  <CardDescription>A brief description of the project</CardDescription>
+                  <CardTitle>{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Image
-                    src={`/placeholder.svg?height=200&width=400&text=Project+${project}`}
-                    alt={`Project ${project}`}
+                    src={`${project.image}?height=200&width=400`}
+                    alt={`Project ${project.title}`}
                     width={400}
                     height={200}
                     className="rounded-md"
                   />
                 </CardContent>
                 <CardFooter>
-                  <Button>View Project</Button>
+                  <Button><Link href={project.link}>View Project</Link></Button>
                 </CardFooter>
               </Card>
             ))}
