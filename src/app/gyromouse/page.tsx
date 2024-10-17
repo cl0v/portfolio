@@ -5,6 +5,16 @@ import { Smartphone, Mouse, PresentationIcon, Gamepad2 } from "lucide-react"
 import Link from "next/link"
 
 export default function Page() {
+
+  const urls = {
+    win: "",
+    macOS: "https://gyromouse.s3.sa-east-1.amazonaws.com/GyroMouse-1.0.1.dmg",
+    macOSm1: "https://gyromouse.s3.sa-east-1.amazonaws.com/GyroMouse-1.0.1-arm64.dmg",
+    android: "",
+    iPhone: "https://apps.apple.com/br/app/gyromouse/id6736866466",
+  }
+
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -102,8 +112,8 @@ export default function Page() {
                     <CardDescription>Download GyroMouse for Mac</CardDescription>
                   </CardHeader>
                   <CardContent className="flex justify-center space-x-4">
-                    <Button asChild><Link href="https://gyromouse.s3.sa-east-1.amazonaws.com/GyroMouse-1.0.1.dmg">Download for Apple Mac Intel Chip</Link></Button>
-                    <Button asChild><Link href="https://gyromouse.s3.sa-east-1.amazonaws.com/GyroMouse-1.0.1-arm64.dmg">Download for Apple Mac Sillicon Chip</Link></Button>
+                    <Button asChild><Link href={urls.macOS}>Download for Apple Mac Intel Chip</Link></Button>
+                    <Button asChild><Link href={urls.macOSm1}>Download for Apple Mac Sillicon Chip</Link></Button>
                   </CardContent>
                 </Card>
               </TabsContent>
@@ -126,7 +136,7 @@ export default function Page() {
                   </CardHeader>
                   <CardContent className="flex justify-center space-x-4">
                     <Button disabled>Download for Android</Button>
-                    <Button><Link href="https://apps.apple.com/br/app/gyromouse/id6736866466">Download for iOS</Link></Button>
+                    <Button><Link href={urls.iPhone}>Download for iOS</Link></Button>
                   </CardContent>
                 </Card>
               </TabsContent>

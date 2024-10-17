@@ -50,14 +50,15 @@ export default function Home() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>
+                  <a href="/gyromouse">GyroMouse</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
                   <a href="/about">About</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <a href="#projects">Projects</a>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="#skills">Skills</a>
-                </DropdownMenuItem>
+
                 <DropdownMenuItem>
                   <a href="#social">Social</a>
                 </DropdownMenuItem>
