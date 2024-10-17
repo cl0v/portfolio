@@ -102,8 +102,8 @@ export default function Page() {
                     <CardDescription>Download GyroMouse for Mac</CardDescription>
                   </CardHeader>
                   <CardContent className="flex justify-center space-x-4">
-                    <Button asChild><Link href="https://gyromouse.s3.sa-east-1.amazonaws.com/GyroMouse-1.0.0.dmg">Download for Apple Mac Intel Chip</Link></Button>
-                    <Button asChild><Link href="https://gyromouse.s3.sa-east-1.amazonaws.com/GyroMouse-1.0.0-arm64.dmg">Download for Apple Mac Sillicon Chip</Link></Button>
+                    <Button asChild><Link href="https://gyromouse.s3.sa-east-1.amazonaws.com/GyroMouse-1.0.1.dmg">Download for Apple Mac Intel Chip</Link></Button>
+                    <Button asChild><Link href="https://gyromouse.s3.sa-east-1.amazonaws.com/GyroMouse-1.0.1-arm64.dmg">Download for Apple Mac Sillicon Chip</Link></Button>
                   </CardContent>
                 </Card>
               </TabsContent>
