@@ -77,7 +77,7 @@ export default function Page() {
         <section id="download" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Download GyroMouse</h2>
-            <Tabs defaultValue="windows" className="w-full max-w-2xl mx-auto">
+            <Tabs defaultValue="mobile" className="w-full max-w-2xl mx-auto">
               <TabsList className="grid w-full grid-cols-4">
                 <TabsTrigger value="windows">Windows</TabsTrigger>
                 <TabsTrigger value="mac">Mac</TabsTrigger>
@@ -91,14 +91,14 @@ export default function Page() {
                     <CardDescription>Download GyroMouse for Windows</CardDescription>
                   </CardHeader>
                   <CardContent className="flex justify-center">
-                    <Button>Download for Windows</Button>
+                    <Button disabled>Download for Windows</Button>
                   </CardContent>
                 </Card>
               </TabsContent>
               <TabsContent value="mac" className="mt-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Mac Download</CardTitle>
+                    <CardTitle>Apple MacOS Download</CardTitle>
                     <CardDescription>Download GyroMouse for Mac</CardDescription>
                   </CardHeader>
                   <CardContent className="flex justify-center space-x-4">
@@ -114,7 +114,7 @@ export default function Page() {
                     <CardDescription>Download GyroMouse for Linux</CardDescription>
                   </CardHeader>
                   <CardContent className="flex justify-center">
-                    <Button>Download for Linux</Button>
+                    <Button disabled>Download for Linux</Button>
                   </CardContent>
                 </Card>
               </TabsContent>
@@ -125,8 +125,8 @@ export default function Page() {
                     <CardDescription>Download GyroMouse for Android or iOS</CardDescription>
                   </CardHeader>
                   <CardContent className="flex justify-center space-x-4">
-                    <Button>Download for Android</Button>
-                    <Button>Download for iOS</Button>
+                    <Button disabled>Download for Android</Button>
+                    <Button><Link href="https://apps.apple.com/br/app/gyromouse/id6736866466">Download for iOS</Link></Button>
                   </CardContent>
                 </Card>
               </TabsContent>
