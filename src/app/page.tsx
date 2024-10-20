@@ -33,7 +33,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold">Marcelo Viana</h1>
           <nav>
             <ul className="hidden md:flex space-x-4">
-              <li><a href="/gyromouse" className="hover:text-primary">GyroMouse</a></li>
+              <li><a href="https://celmouse.com" className="hover:text-primary">CelMouse</a></li>
               <li><a href="#projects" className="hover:text-primary">Projects</a></li>
               <li><a href="/about" className="hover:text-primary">About</a></li>
               <li><a href="#contact" className="hover:text-primary">Contact</a></li>
@@ -50,7 +50,7 @@ export default function Home() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>
-                  <a href="/gyromouse">GyroMouse</a>
+                  <a href="/https://celmouse.com">CelMouse</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <a href="/about">About</a>
